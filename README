@@ -28,7 +28,7 @@ Este é um aplicativo de calculadora desenvolvido em Python utilizando a bibliot
 2. Baixe o arquivo do script
 3. Execute o script diretamente:
    ```bash
-   python calculadora.py
+   python app.py
    ```
 
 ## Teclas e Botões
