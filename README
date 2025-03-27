@@ -9,6 +9,7 @@ Este é um aplicativo de calculadora desenvolvido em Python utilizando a bibliot
 - Operações básicas: adição, subtração, multiplicação, divisão
 - Exponenciação (x^y)
 - Suporte a números decimais
+- Associação com teclado númerico
 - Backspace e limpeza de tela
 - Histórico de operações
 - Design responsivo e esteticamente agradável

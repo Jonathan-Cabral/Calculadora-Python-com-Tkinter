@@ -18,9 +18,47 @@ class CalculadoraApp:
         self.mostrar_historico = False
         
         self.configurar_estilos()
-        
         self.criar_widgets()
+        self.configurar_eventos_teclado()
+        
+    def configurar_eventos_teclado(self):
+     """Configura eventos de teclado para a calculadora"""
+     self.root.bind('<Key>', self.processar_tecla)
+
+    def processar_tecla(self, evento):
+        """Processa eventos de tecla pressionada"""
+        tecla = evento.char
+        keysym = evento.keysym
+        
+        # Digitos numericos 
+        if tecla.isdigit():
+            self.adicionar_digito(tecla)
+        
+        # Operadores
+        elif tecla == '+':
+            self.selecionar_operacao('+')
+        elif tecla == '-':
+            self.selecionar_operacao('-')
+        elif tecla == '*':
+            self.selecionar_operacao('*')
+        elif tecla == '/':
+            self.selecionar_operacao('/')
+        elif tecla == '^':
+            self.selecionar_operacao('^')
+        
+        # Tecla de igual (Enter)
+        elif keysym == 'Return':
+            self.calcular_resultado()
+        
+        # Ponto decimal (. ou ,)
+        elif tecla == '.' or tecla == ',':
+            self.adicionar_decimal()
+        
+        # Tecla de apagar (Backspace)
+        elif keysym == 'BackSpace':
+            self.apagar()
     
+        
     def configurar_estilos(self):
         """Configura os estilos personalizados para os widgets"""
         # Cores
@@ -126,7 +164,7 @@ class CalculadoraApp:
         
         self.status_label = tk.Label(
             display_frame, 
-            text="", 
+            text="Digite um número", 
             font=self.fonte_status,
             bg=self.cor_display_bg,
             fg="#9CA3AF",
@@ -361,3 +399,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = CalculadoraApp(root)
     root.mainloop()
+    
+    
